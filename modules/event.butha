@@ -1,0 +1,88 @@
+// event.butha
+
+// Define the Event module with event management functionalities
+
+module Event {
+
+    // Object to store event listeners
+    var eventListeners = {};
+
+    // Register an event listener for a specific event
+    function on(eventName, callback) {
+        if (typeof eventName !== 'string') {
+            throw new Error("Event name must be a string");
+        }
+        if (typeof callback !== 'function') {
+            throw new Error("Callback must be a function");
+        }
+
+        if (!(eventName in eventListeners)) {
+            eventListeners[eventName] = [];
+        }
+        eventListeners[eventName].push(callback);
+        return "Listener registered successfully";
+    }
+
+    // Deregister an event listener for a specific event
+    function off(eventName, callback) {
+        if (typeof eventName !== 'string') {
+            throw new Error("Event name must be a string");
+        }
+        if (typeof callback !== 'function') {
+            throw new Error("Callback must be a function");
+        }
+
+        if (!(eventName in eventListeners)) {
+            throw new Error("No listeners registered for this event");
+        }
+        eventListeners[eventName] = eventListeners[eventName].filter(fn => fn !== callback);
+        return "Listener deregistered successfully";
+    }
+
+    // Trigger an event, invoking all associated listeners
+    function emit(eventName, ...args) {
+        if (typeof eventName !== 'string') {
+            throw new Error("Event name must be a string");
+        }
+
+        if (!(eventName in eventListeners)) {
+            return "No listeners registered for this event";
+        }
+        eventListeners[eventName].forEach(callback => {
+            try {
+                callback(...args);
+            } catch (error) {
+                console.error("Error executing event listener:", error);
+            }
+        });
+        return "Event emitted successfully";
+    }
+
+    // List all registered event names
+    function listEvents() {
+        return Object.keys(eventListeners);
+    }
+
+    // Clear all event listeners for a specific event
+    function clear(eventName) {
+        if (typeof eventName !== 'string') {
+            throw new Error("Event name must be a string");
+        }
+        if (eventName in eventListeners) {
+            eventListeners[eventName] = [];
+        }
+        return "Listeners cleared for event: " + eventName;
+    }
+
+    // Clear all event listeners
+    function clearAll() {
+        eventListeners = {};
+        return "All event listeners cleared";
+    }
+
+    // Utility function to check if a value is a function
+    function isFunction(value) {
+        return typeof value === 'function';
+    }
+}
+

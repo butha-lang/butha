@@ -1,0 +1,57 @@
+butha-lang/
+├── butha.js
+├── parser.js
+├── lexer.js
+├── ast.js
+├── evaluator.js
+├── optimizer.js
+├── meta.js
+├── di.js
+├── memory.js
+├── api.js
+├── security.js
+├── debug.js
+├── event.js
+├── storage.js
+├── repl.js
+├── dynamic.js
+├── analyzer.js
+├── refactor.js
+├── error.js
+├── runtime.js
+├── system.js
+├── jit.js
+├── concurrency.js
+├── packageManager.js
+├── ide.js
+├── debugger.js
+├── linter.js
+├── wasm.js
+├── wasmInterop.js
+├── ml.js
+├── modelManager.js
+├── collaboration.js
+├── versionControl.js
+├── modules/
+│   ├── math.butha
+│   ├── utils.butha
+│   ├── db.butha
+│   ├── event.butha
+│   └── storage.butha
+├── examples/
+│   └── advanced_sample.butha
+└── tests/
+    ├── parser.test.js
+    ├── lexer.test.js
+    ├── evaluator.test.js
+    ├── ast.test.js
+    ├── concurrency.test.js
+    ├── reflection.test.js
+    ├── meta.test.js
+    ├── di.test.js
+    ├── optimizer.test.js
+    ├── debug.test.js
+    ├── wasm.test.js
+    ├── ml.test.js
+    ├── collaboration.test.js
+    └── versionControl.test.js

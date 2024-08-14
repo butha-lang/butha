@@ -1,0 +1,103 @@
+// math.butha
+
+// Define the Math module with basic mathematical functions
+
+module Math {
+
+    // Add two numbers
+    function add(a, b) {
+        return a + b;
+    }
+
+    // Subtract one number from another
+    function subtract(a, b) {
+        return a - b;
+    }
+
+    // Multiply two numbers
+    function multiply(a, b) {
+        return a * b;
+    }
+
+    // Divide one number by another
+    function divide(a, b) {
+        if (b == 0) {
+            throw new Error("Division by zero");
+        }
+        return a / b;
+    }
+
+    // Calculate the power of a number
+    function power(base, exponent) {
+        return Math.pow(base, exponent);
+    }
+
+    // Calculate the square root of a number
+    function sqrt(value) {
+        if (value < 0) {
+            throw new Error("Cannot calculate the square root of a negative number");
+        }
+        return Math.sqrt(value);
+    }
+
+    // Calculate the factorial of a number
+    function factorial(n) {
+        if (n < 0) {
+            throw new Error("Factorial is not defined for negative numbers");
+        }
+        let result = 1;
+        for (let i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    // Calculate the sine of an angle (in radians)
+    function sin(angle) {
+        return Math.sin(angle);
+    }
+
+    // Calculate the cosine of an angle (in radians)
+    function cos(angle) {
+        return Math.cos(angle);
+    }
+
+    // Calculate the tangent of an angle (in radians)
+    function tan(angle) {
+        return Math.tan(angle);
+    }
+
+    // Calculate the logarithm of a number with a given base
+    function log(value, base) {
+        if (value <= 0 || base <= 0 || base == 1) {
+            throw new Error("Invalid input for logarithm function");
+        }
+        return Math.log(value) / Math.log(base);
+    }
+
+    // Calculate the absolute value of a number
+    function abs(value) {
+        return Math.abs(value);
+    }
+
+    // Calculate the maximum of two numbers
+    function max(a, b) {
+        return (a > b) ? a : b;
+    }
+
+    // Calculate the minimum of two numbers
+    function min(a, b) {
+        return (a < b) ? a : b;
+    }
+
+    // Check if a number is even
+    function isEven(value) {
+        return value % 2 === 0;
+    }
+
+    // Check if a number is odd
+    function isOdd(value) {
+        return value % 2 !== 0;
+    }
+}
+

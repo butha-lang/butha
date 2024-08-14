@@ -1,0 +1,133 @@
+// db.butha
+
+// Define the DB module with database operations
+
+module DB {
+
+    // Connection object
+    var connection = null;
+
+    // Connect to the database
+    function connect(connectionString) {
+        // For simplicity, let's assume connectionString is a valid URL
+        // In a real-world scenario, you would use a library to connect to the database
+        if (typeof connectionString !== 'string') {
+            throw new Error("Connection string must be a string");
+        }
+
+        // Simulate database connection
+        connection = { url: connectionString, status: 'connected' };
+        return "Connected to database successfully";
+    }
+
+    // Disconnect from the database
+    function disconnect() {
+        if (connection === null) {
+            throw new Error("No active database connection");
+        }
+        connection = null;
+        return "Disconnected from database successfully";
+    }
+
+    // Check if there is an active database connection
+    function isConnected() {
+        return connection !== null;
+    }
+
+    // Execute a SQL query
+    function executeQuery(query) {
+        if (connection === null) {
+            throw new Error("No active database connection");
+        }
+        if (typeof query !== 'string') {
+            throw new Error("Query must be a string");
+        }
+
+        // Simulate query execution
+        // In a real-world scenario, you would use a library to execute the query and fetch results
+        // Here we just return a mock result
+        return {
+            rows: [
+                { id: 1, name: "John Doe" },
+                { id: 2, name: "Jane Smith" }
+            ],
+            affectedRows: 2
+        };
+    }
+
+    // Insert a record into a table
+    function insert(table, data) {
+        if (connection === null) {
+            throw new Error("No active database connection");
+        }
+        if (typeof table !== 'string' || !isObject(data)) {
+            throw new Error("Table must be a string and data must be an object");
+        }
+
+        // Simulate insert operation
+        return "Record inserted successfully into " + table;
+    }
+
+    // Update records in a table
+    function update(table, data, where) {
+        if (connection === null) {
+            throw new Error("No active database connection");
+        }
+        if (typeof table !== 'string' || !isObject(data) || !isObject(where)) {
+            throw new Error("Table, data, and where must be valid");
+        }
+
+        // Simulate update operation
+        return "Records updated successfully in " + table;
+    }
+
+    // Delete records from a table
+    function deleteRecords(table, where) {
+        if (connection === null) {
+            throw new Error("No active database connection");
+        }
+        if (typeof table !== 'string' || !isObject(where)) {
+            throw new Error("Table and where must be valid");
+        }
+
+        // Simulate delete operation
+        return "Records deleted successfully from " + table;
+    }
+
+    // Fetch all records from a table
+    function fetchAll(table) {
+        if (connection === null) {
+            throw new Error("No active database connection");
+        }
+        if (typeof table !== 'string') {
+            throw new Error("Table must be a string");
+        }
+
+        // Simulate fetching records
+        return {
+            rows: [
+                { id: 1, name: "John Doe" },
+                { id: 2, name: "Jane Smith" }
+            ]
+        };
+    }
+
+    // Fetch a single record by ID
+    function fetchById(table, id) {
+        if (connection === null) {
+            throw new Error("No active database connection");
+        }
+        if (typeof table !== 'string' || !isNumber(id)) {
+            throw new Error("Table must be a string and ID must be a number");
+        }
+
+        // Simulate fetching a record
+        return { id: id, name: "John Doe" };
+    }
+
+    // Utility function to check if a value is an object
+    function isObject(value) {
+        return value !== null && typeof value === 'object' && !Array.isArray(value);
+    }
+}
+

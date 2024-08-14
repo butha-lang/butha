@@ -1,0 +1,140 @@
+// utils.butha
+
+// Define the Utils module with general-purpose utility functions
+
+module Utils {
+
+    // Check if a value is a string
+    function isString(value) {
+        return typeof value === 'string';
+    }
+
+    // Check if a value is a number
+    function isNumber(value) {
+        return typeof value === 'number' && !isNaN(value);
+    }
+
+    // Check if a value is an array
+    function isArray(value) {
+        return Array.isArray(value);
+    }
+
+    // Check if a value is an object
+    function isObject(value) {
+        return value !== null && typeof value === 'object' && !Array.isArray(value);
+    }
+
+    // Convert a string to uppercase
+    function toUpperCase(str) {
+        if (!isString(str)) {
+            throw new Error("Input must be a string");
+        }
+        return str.toUpperCase();
+    }
+
+    // Convert a string to lowercase
+    function toLowerCase(str) {
+        if (!isString(str)) {
+            throw new Error("Input must be a string");
+        }
+        return str.toLowerCase();
+    }
+
+    // Trim whitespace from both ends of a string
+    function trim(str) {
+        if (!isString(str)) {
+            throw new Error("Input must be a string");
+        }
+        return str.trim();
+    }
+
+    // Split a string into an array of substrings
+    function split(str, separator) {
+        if (!isString(str)) {
+            throw new Error("Input must be a string");
+        }
+        if (!isString(separator)) {
+            throw new Error("Separator must be a string");
+        }
+        return str.split(separator);
+    }
+
+    // Join an array of strings into a single string
+    function join(array, separator) {
+        if (!isArray(array)) {
+            throw new Error("Input must be an array");
+        }
+        if (!isString(separator)) {
+            throw new Error("Separator must be a string");
+        }
+        return array.join(separator);
+    }
+
+    // Check if a value is a valid email
+    function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return isString(email) && re.test(email);
+    }
+
+    // Generate a random integer between min (inclusive) and max (inclusive)
+    function randomInt(min, max) {
+        if (!isNumber(min) || !isNumber(max) || min > max) {
+            throw new Error("Invalid range for random integer generation");
+        }
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Merge two objects
+    function mergeObjects(obj1, obj2) {
+        if (!isObject(obj1) || !isObject(obj2)) {
+            throw new Error("Both arguments must be objects");
+        }
+        return { ...obj1, ...obj2 };
+    }
+
+    // Deep clone an object
+    function deepClone(obj) {
+        if (!isObject(obj)) {
+            throw new Error("Input must be an object");
+        }
+        return JSON.parse(JSON.stringify(obj));
+    }
+
+    // Format a date as YYYY-MM-DD
+    function formatDate(date) {
+        if (!(date instanceof Date)) {
+            throw new Error("Input must be a Date object");
+        }
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    // Check if a number is an integer
+    function isInteger(value) {
+        return isNumber(value) && Number.isInteger(value);
+    }
+
+    // Remove duplicates from an array
+    function uniqueArray(array) {
+        if (!isArray(array)) {
+            throw new Error("Input must be an array");
+        }
+        return [...new Set(array)];
+    }
+
+    // Get the current timestamp in milliseconds
+    function getCurrentTimestamp() {
+        return Date.now();
+    }
+
+    // Capitalize the first letter of a string
+    function capitalizeFirstLetter(str) {
+        if (!isString(str)) {
+            throw new Error("Input must be a string");
+        }
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+}
+

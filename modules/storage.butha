@@ -1,0 +1,65 @@
+// storage.butha
+
+// Define the Storage module with persistent storage functionalities
+
+module Storage {
+
+    // Object to simulate in-memory storage
+    var storage = {};
+
+    // Save data to storage
+    function save(key, value) {
+        if (typeof key !== 'string') {
+            throw new Error("Key must be a string");
+        }
+        storage[key] = value;
+        return "Data saved successfully";
+    }
+
+    // Retrieve data from storage
+    function retrieve(key) {
+        if (typeof key !== 'string') {
+            throw new Error("Key must be a string");
+        }
+        if (key in storage) {
+            return storage[key];
+        } else {
+            return "No data found for the key: " + key;
+        }
+    }
+
+    // Remove data from storage
+    function remove(key) {
+        if (typeof key !== 'string') {
+            throw new Error("Key must be a string");
+        }
+        if (key in storage) {
+            delete storage[key];
+            return "Data removed successfully";
+        } else {
+            return "No data found for the key: " + key;
+        }
+    }
+
+    // Clear all data from storage
+    function clear() {
+        storage = {};
+        return "All data cleared from storage";
+    }
+
+    // List all keys in storage
+    function listKeys() {
+        return Object.keys(storage);
+    }
+
+    // Utility function to check if a value is a string
+    function isString(value) {
+        return typeof value === 'string';
+    }
+
+    // Utility function to check if a value is an object
+    function isObject(value) {
+        return value !== null && typeof value === 'object' && !Array.isArray(value);
+    }
+}
+

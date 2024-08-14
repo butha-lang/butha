@@ -1,0 +1,82 @@
+// advanced_sample.butha
+
+// Import necessary modules
+import Event from "event.butha";
+import Storage from "storage.butha";
+import DB from "db.butha";
+
+// Example function to demonstrate event handling
+function setupEventListeners() {
+    Event.on("dataSaved", function (key, value) {
+        console.log("Data saved event triggered:", key, value);
+    });
+
+    Event.on("dataRetrieved", function (key, value) {
+        console.log("Data retrieved event triggered:", key, value);
+    });
+}
+
+// Example function to demonstrate storage operations
+function demonstrateStorage() {
+    console.log("Demonstrating Storage Operations:");
+
+    // Save data
+    var saveResult = Storage.save("username", "Omindu");
+    console.log(saveResult); // Expected: Data saved successfully
+
+    // Retrieve data
+    var retrievedValue = Storage.retrieve("username");
+    console.log("Retrieved Value:", retrievedValue); // Expected: Omindu
+
+    // Trigger dataRetrieved event
+    Event.emit("dataRetrieved", "username", retrievedValue);
+
+    // Remove data
+    var removeResult = Storage.remove("username");
+    console.log(removeResult); // Expected: Data removed successfully
+
+    // Retrieve data again
+    var retrievedAfterRemoval = Storage.retrieve("username");
+    console.log("Retrieved After Removal:", retrievedAfterRemoval); // Expected: No data found for the key: username
+
+    // Trigger dataRemoved event
+    Event.emit("dataSaved", "username", null);
+}
+
+// Example function to demonstrate database operations
+function demonstrateDatabase() {
+    console.log("Demonstrating Database Operations:");
+
+    // Connect to database
+    var connectionResult = DB.connect("mongodb://localhost:27017/mydb");
+    console.log(connectionResult); // Expected: Connected to database successfully
+
+    // Insert a record
+    var insertResult = DB.insert("users", { name: "John Doe", age: 30 });
+    console.log(insertResult); // Expected: Record inserted successfully into users
+
+    // Execute a query
+    var queryResult = DB.executeQuery("SELECT * FROM users");
+    console.log("Query Result:", queryResult);
+
+    // Fetch all records
+    var fetchAllResult = DB.fetchAll("users");
+    console.log("Fetch All Result:", fetchAllResult);
+
+    // Fetch a single record by ID
+    var fetchByIdResult = DB.fetchById("users", 1);
+    console.log("Fetch By ID Result:", fetchByIdResult);
+
+    // Disconnect from database
+    var disconnectResult = DB.disconnect();
+    console.log(disconnectResult); // Expected: Disconnected from database successfully
+}
+
+// Setup event listeners
+setupEventListeners();
+
+// Demonstrate storage operations
+demonstrateStorage();
+
+// Demonstrate database operations
+demonstrateDatabase();
