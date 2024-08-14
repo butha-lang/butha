@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butha Language Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Butha Language Tutorial</h1>
+        <nav>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#setup">Setup</a></li>
+                <li><a href="#basic-syntax">Basic Syntax</a></li>
+                <li><a href="#functions">Functions</a></li>
+                <li><a href="#control-structures">Control Structures</a></li>
+                <li><a href="#modules">Modules</a></li>
+                <li><a href="#advanced-topics">Advanced Topics</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Welcome to the Butha language tutorial. This guide will help you get started with Butha, covering the basics of setting up your environment, writing your first program, and understanding the key features of the language.</p>
+        </section>
+
+        <section id="setup">
+            <h2>Setup</h2>
+            <p>To begin using Butha, you need to install the Butha interpreter and set up your development environment.</p>
+            <h3>Installation</h3>
+            <p>Download the Butha interpreter from the official website. Choose the installer suitable for your operating system and follow the installation instructions.</p>
+            <h3>Setting Up the Environment</h3>
+            <p>Ensure that the Butha executable is added to your system's PATH. This will allow you to run Butha commands from the terminal or command prompt.</p>
+        </section>
+
+        <section id="basic-syntax">
+            <h2>Basic Syntax</h2>
+            <p>Butha uses a clean and straightforward syntax designed for ease of use. Here's an overview of the basic syntax:</p>
+            <h3>Variables</h3>
+            <p>Variables in Butha are declared using the `let` keyword:</p>
+            <pre><code>
+let x = 10;
+let name = "Butha";
+            </code></pre>
+            <h3>Data Types</h3>
+            <p>Butha supports several data types, including integers, floats, strings, and booleans:</p>
+            <pre><code>
+let age = 25;         // Integer
+let height = 5.9;     // Float
+let greeting = "Hello"; // String
+let isActive = true; // Boolean
+            </code></pre>
+        </section>
+
+        <section id="functions">
+            <h2>Functions</h2>
+            <p>Functions are defined using the `function` keyword. Here's how you can define and call a function in Butha:</p>
+            <pre><code>
+function greet(name) {
+    return "Hello, " + name;
+}
+let message = greet("World");
+print(message);
+            </code></pre>
+        </section>
+
+        <section id="control-structures">
+            <h2>Control Structures</h2>
+            <p>Butha includes common control structures such as conditionals and loops:</p>
+            <h3>Conditionals</h3>
+            <pre><code>
+let x = 10;
+if (x > 5) {
+    print("x is greater than 5");
+} else {
+    print("x is 5 or less");
+}
+            </code></pre>
+            <h3>Loops</h3>
+            <pre><code>
+for (let i = 0; i < 5; i++) {
+    print(i);
+}
+            </code></pre>
+        </section>
+
+        <section id="modules">
+            <h2>Modules</h2>
+            <p>Butha allows you to use and create modules for code organization and reuse. Here's how to import and use a module:</p>
+            <pre><code>
+import { Math } from "core_modules/math.butha";
+let sum = Math.add(5, 3);
+print(sum);
+            </code></pre>
+            <p>Modules can also be created to encapsulate and reuse code:</p>
+            <pre><code>
+function add(a, b) {
+    return a + b;
+}
+export { add };
+            </code></pre>
+        </section>
+
+        <section id="advanced-topics">
+            <h2>Advanced Topics</h2>
+            <p>Explore more advanced features of Butha, including concurrency, error handling, and custom modules:</p>
+            <h3>Concurrency</h3>
+            <p>Butha supports concurrency with its built-in concurrency module:</p>
+            <pre><code>
+import { Concurrency } from "core_modules/concurrency.butha";
+Concurrency.run(() => {
+    print("Running in parallel");
+});
+            </code></pre>
+            <h3>Error Handling</h3>
+            <p>Handle errors using try-catch blocks:</p>
+            <pre><code>
+try {
+    let result = 10 / 0;
+} catch (error) {
+    print("Error: " + error.message);
+}
+            </code></pre>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>Troubleshooting</h2>
+            <p>If you encounter issues while using Butha, refer to these common solutions:</p>
+            <h3>Common Issues</h3>
+            <ul>
+                <li>**Syntax Errors:** Double-check your code for syntax mistakes.</li>
+                <li>**Module Import Errors:** Ensure the module paths are correct and the modules are properly installed.</li>
+                <li>**Runtime Errors:** Check the error messages for clues on what might be going wrong.</li>
+            </ul>
+        </section>
+
+        <section id="feedback">
+            <h2>Feedback</h2>
+            <p>We value your feedback! If you have suggestions or comments about Butha, please let us know:</p>
+            <p>Email: feedback@butha-lang.org</p>
+            <p>Website: <a href="https://www.butha-lang.org">www.butha-lang.org</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Butha Language. All rights reserved.</p>
+    </footer>
+</body>
+</html>
