@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butha Language Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Butha Language Documentation</h1>
+        <nav>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#syntax">Syntax</a></li>
+                <li><a href="#core-modules">Core Modules</a></li>
+                <li><a href="#standard-library">Standard Library</a></li>
+                <li><a href="#third-party">Third-Party Libraries</a></li>
+                <li><a href="#examples">Examples</a></li>
+                <li><a href="#api">API Reference</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Butha is a high-level programming language designed for ease of use and flexibility. It features a clean syntax, rich set of core modules, and extensive libraries for various functionalities.</p>
+        </section>
+
+        <section id="getting-started">
+            <h2>Getting Started</h2>
+            <p>To get started with Butha, you need to install the Butha interpreter and set up your development environment.</p>
+            <h3>Installation</h3>
+            <p>Download and install the Butha interpreter from the official website. Follow the installation guide for your operating system.</p>
+            <h3>Basic Usage</h3>
+            <p>Write your Butha code in a file with the `.butha` extension. You can execute your code using the Butha interpreter with the command:</p>
+            <pre><code>butha your_file.butha</code></pre>
+        </section>
+
+        <section id="syntax">
+            <h2>Syntax</h2>
+            <p>Butha syntax is designed to be intuitive and easy to learn. Here are some basic syntax rules:</p>
+            <h3>Variables</h3>
+            <pre><code>
+let x = 10;
+let name = "Butha";
+            </code></pre>
+            <h3>Functions</h3>
+            <pre><code>
+function greet(name) {
+    return "Hello, " + name;
+}
+            </code></pre>
+            <h3>Control Structures</h3>
+            <pre><code>
+if (x > 10) {
+    print("x is greater than 10");
+} else {
+    print("x is 10 or less");
+}
+            </code></pre>
+        </section>
+
+        <section id="core-modules">
+            <h2>Core Modules</h2>
+            <p>Butha provides several core modules to support fundamental programming tasks.</p>
+            <h3>Core Module: Math</h3>
+            <p>Provides basic mathematical operations and constants.</p>
+            <pre><code>
+import { Math } from "core_modules/math.butha";
+let result = Math.add(5, 3);
+            </code></pre>
+            <h3>Core Module: IO</h3>
+            <p>Handles input and output operations.</p>
+            <pre><code>
+import { IO } from "core_modules/io.butha";
+IO.print("Hello, World!");
+            </code></pre>
+        </section>
+
+        <section id="standard-library">
+            <h2>Standard Library</h2>
+            <p>The standard library provides additional functionality for common programming tasks.</p>
+            <h3>Math Library</h3>
+            <p>Includes advanced mathematical functions and constants.</p>
+            <pre><code>
+import { Math } from "standard_lib/math.butha";
+let pi = Math.PI;
+            </code></pre>
+            <h3>Utils Library</h3>
+            <p>Provides utility functions for type checking, formatting, and array manipulation.</p>
+            <pre><code>
+import { Utils } from "standard_lib/utils.butha";
+let formattedDate = Utils.formatDate(new Date());
+            </code></pre>
+        </section>
+
+        <section id="third-party">
+            <h2>Third-Party Libraries</h2>
+            <p>Butha supports integration with various third-party libraries to extend its capabilities.</p>
+            <h3>Axios</h3>
+            <p>A promise-based HTTP client for making requests.</p>
+            <pre><code>
+import { Axios } from "third_party/axios.butha";
+let response = Axios.get("https://api.example.com/data");
+            </code></pre>
+            <h3>Lodash</h3>
+            <p>A utility library providing many helpful functions.</p>
+            <pre><code>
+import { Lodash } from "third_party/lodash.butha";
+let array = [1, 2, 3];
+let doubled = Lodash.map(array, x => x * 2);
+            </code></pre>
+        </section>
+
+        <section id="examples">
+            <h2>Examples</h2>
+            <p>Here are some example scripts written in Butha:</p>
+            <h3>Basic Example</h3>
+            <pre><code>
+let name = "World";
+print("Hello, " + name);
+            </code></pre>
+            <h3>Advanced Example</h3>
+            <pre><code>
+function factorial(n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}
+let result = factorial(5);
+print("Factorial of 5 is " + result);
+            </code></pre>
+        </section>
+
+        <section id="api">
+            <h2>API Reference</h2>
+            <p>Detailed reference for the Butha API, including functions, classes, and modules.</p>
+            <h3>Math Module</h3>
+            <p>Functions: add, subtract, multiply, divide, etc.</p>
+            <h3>IO Module</h3>
+            <p>Functions: print, read, write, etc.</p>
+        </section>
+
+        <section id="faq">
+            <h2>FAQ</h2>
+            <p>Common questions and answers about the Butha language.</p>
+            <h3>How do I install Butha?</h3>
+            <p>Refer to the "Getting Started" section for installation instructions.</p>
+            <h3>How do I report a bug?</h3>
+            <p>Please contact us via the contact form in the "Contact" section.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>If you have any questions or need further assistance, please contact us at:</p>
+            <p>Email: support@butha-lang.org</p>
+            <p>Website: <a href="https://www.butha-lang.org">www.butha-lang.org</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Butha Language. All rights reserved.</p>
+    </footer>
+</body>
+</html>
